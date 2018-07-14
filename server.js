@@ -27,9 +27,10 @@ app.use((req , res , next)=>{
   next();
 });
 
-app.use((req ,res , next)=>{
-  res.render('maintenance.hbs');
-});
+// app.use((req ,res , next)=>{
+//   res.render('maintenance.hbs');
+// });
+
 
 app.use(express.static(__dirname + '/public'));
 
@@ -45,6 +46,7 @@ res.render('home.hbs', {
   pageTitle: 'about page',
   currentYear: new Date().getFullYear()
 });
+
   // res.send({
   //   status: 'OK' ,
   //   name3: 'ghg',
@@ -66,6 +68,12 @@ app.get('/about', (req , res)=>{
   });
 });
 
+app.get('/artical' , (req,res) =>{
+  res.render('artical.hbs' , {
+    pageTitle: 'artical page',
+    currentYear: new Date().getFullYear()
+  })
+});
 app.get('/test', (req , res)=>{
   res.send('<h1>test page</h1>');
 });
